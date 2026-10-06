@@ -1,122 +1,179 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+// Import components
+import Header from "./components/header";
+import Navigation from "./components/navigation";
+import Form from "./components/form";
+import PostCard from "./components/postCard";
+import AdCard from "./components/adCard";
+
+import styled from "styled-components";
+
+// Import images
+import avatar from "./assets/avatar.PNG";
+import ad1 from "./assets/ad1.JPG";
+import ad2 from "./assets/ad2.JPG";
+
+const Page = styled.div`
+    min-height: 100vh;
+    background: #f5f5f5;
+    color: #333;
+`;
+
+const Layout = styled.div`
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 200px 1fr 260px;
+    gap: 30px;
+    align-items: start;
+`;
+
+const LeftSide = styled.aside`
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+`;
+
+const Feed = styled.main`
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    form {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    form input,
+    form textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        margin: 8px 0 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    form textarea {
+        min-height: 90px;
+        resize: vertical;
+    }
+
+    form button {
+        padding: 10px 30px;
+        border: none;
+        border-radius: 5px;
+        background: #725ac1;
+        color: white;
+        cursor: pointer;
+    }
+
+    article {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    article img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    article button {
+        margin-right: 10px;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+`;
+
+const Ads = styled.aside`
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    article {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    h3 {
+        margin-bottom: 5px;
+    }
+
+    p {
+        color: #777;
+    }
+`;
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <Page>
+      <Header
+        logo="Connect"
+        searchText="Search..."
+      />
 
-      <div className="ticks"></div>
+      <Layout>
+        <LeftSide>
+          <Navigation
+            title="Menu"
+            newsfeed="Newsfeed"
+            messages="Messages"
+            watch="Watch"
+          />
+        </LeftSide>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <Feed>
+          <Form
+            titleLabel="Post Title"
+            titlePlaceholder="Enter a post title"
+            descriptionLabel="Post Description"
+            descriptionPlaceholder="What's on your mind?"
+            buttonText="Add Post"
+          />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          <PostCard
+            avatar={avatar}
+            avatarAlt="User profile"
+            title="My First Post"
+            description="Learning how to create reusable components with React."
+          />
+        </Feed>
+
+        <Ads>
+          <AdCard
+            image={ad1}
+            imageAlt="Creative advertisement"
+            title="Creative Design"
+            subtitle="Create something that stands out."
+          />
+
+          <AdCard
+            image={ad2}
+            imageAlt="Photography advertisement"
+            title="Photography"
+            subtitle="Capture moments worth remembering."
+          />
+        </Ads>
+      </Layout>
+    </Page>
+  );
 }
 
-export default App
+export default App;

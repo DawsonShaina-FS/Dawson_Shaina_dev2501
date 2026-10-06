@@ -1,29 +1,80 @@
-// importing the icons for the header
+// import icons for header
 import { FaSearch, FaUserCircle, FaCog } from "react-icons/fa";
+import styled from "styled-components";
 
-// receiving the dynamic content through props
+// style the header
+const HeaderContainer = styled.header`
+    height: 80px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    border-bottom: 1px solid #eeeeee;
+`;
+
+// style the logo
+const Logo = styled.h1`
+    width: 220px;
+    margin: 0;
+    font-size: 28px;
+    font-weight: 500;
+    color: #38a3db;
+`;
+
+// style the search area
+const SearchArea = styled.div`
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #9a9a9a;
+`;
+
+// style the search input
+const SearchInput = styled.input`
+    width: 300px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 15px;
+
+    &::placeholder {
+        color: #aaaaaa;
+    }
+`;
+
+// style the user icons
+const UserIcons = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #777777;
+    font-size: 23px;
+`;
+
+// receiving content through props
 const Header = (props) => {
     return (
-        <header>
-            {/* the logo thats passing through the props*/}
-            <h1>{props.logo}</h1>
+        <HeaderContainer>
+            {/* show logo */}
+            <Logo>{props.logo}</Logo>
 
-            {/* search area*/}
-            <div>
+            {/* search area */}
+            <SearchArea>
                 <FaSearch />
-                <input
+                <SearchInput
                     type="text"
                     placeholder={props.searchText}
                 />
-            </div>
+            </SearchArea>
 
-            {/* user and settings icons*/}
-            <div>
+            {/* User and settings icons */}
+            <UserIcons>
                 <FaUserCircle />
                 <FaCog />
-            </div>
-        </header>
-
+            </UserIcons>
+        </HeaderContainer>
     );
 };
 
