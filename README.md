@@ -1,16 +1,39 @@
-# React + Vite
+# Connect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Connect is a social media style app that I started building in Module 1 using React and Vite. In Module 2, I added more functionality so users can actually create, edit, and delete posts instead of just viewing them.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Create** - users can add a post with a title, description, and optional avatar
+- **Read** - posts show up in the newsfeed after being added
+- **Update** - users can go back and edit a post they already made
+- **Delete** - users can delete posts they no longer want
+- **Form Validation** - the form won't submit if the title or description is empty
+- **React Icons** - I used icons for the edit and delete buttons
+- **Lifecycle Method** - I used componentDidMount and setTimeout to change the background color after the page loads
+- **Styling** - I used styled-components to style the app
 
-## React Compiler
+## What I Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- Vite
+- styled-components
+- React Icons
+- HTML and CSS
 
-## Expanding the ESLint configuration
+## How to Run It
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository
+2. Open the project in VS Code
+3. Run `npm install` in the terminal
+4. Run `npm run dev`
+5. Open the localhost link to view the app
+
+## What I Learned
+
+This assignment helped me understand React class components a little better, especially how state works. I also got more practice using map, filter, and the spread operator to add, edit, and remove posts. Some parts were confusing at first, but seeing everything work together helped me understand it more.
+
+## Branch
+
+`02_Application`
