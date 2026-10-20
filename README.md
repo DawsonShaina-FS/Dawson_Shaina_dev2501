@@ -37,3 +37,12 @@ This assignment helped me understand React class components a little better, esp
 ## Branch
 
 `02_Application`
+
+
+## Module 3 - Routing and Hooks
+
+For this assignment, I added React Router to my Connect app so users can switch between the Dashboard, Newsfeed, Messages, and Settings pages.
+
+I also added three charts using Recharts to display sample data for engagement, followers, and posts. I used useState to update the chart data with a refresh button and useEffect to change the page title.
+
+I continued using styled-components for styling and kept the CRUD features from Module 2.
