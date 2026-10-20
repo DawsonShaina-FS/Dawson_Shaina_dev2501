@@ -1,51 +1,53 @@
 import styled from "styled-components";
+import { NavLink } from "react-router";
 
-// style the navigation
+// container for nav links
 const NavContainer = styled.nav`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
 `;
 
-// style the nav title
 const NavTitle = styled.h2`
-    margin: 0 0 15px 0;
-    font-size: 18px;
+  margin: 0 0 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+`;
+
+// styled router link
+const MenuLink = styled(NavLink)`
+  display: block;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #777;
+  font-size: 16px;
+  transition: 0.2s;
+
+  &:hover {
+    background: #f1edff;
+    color: #725ac1;
+  }
+
+  &.active {
+    background: #f1edff;
+    color: #49378b;
     font-weight: 600;
-    color: #555555;
+  }
 `;
 
-// style the nav links
-const NavLink = styled.a`
-    display: block;
-    padding: 10px 5px;
-    text-decoration: none;
-    color: #777777;
-    font-size: 16px;
-    transition: 0.2s;
-
-    &:first-of-type {
-        color: #38a3db;
-        font-weight: 600;
-    }
-
-    &:hover {
-        color: #38a3db;
-    }
-`;
-
-// nav component getting the menu text through the props
-const Navigation = (props) => {
+// nav used accross site
+const Navigation = () => {
     return (
         <NavContainer>
-            {/* nav title */}
-            <NavTitle>{props.title}</NavTitle>
+            <NavTitle>Menu</NavTitle>
 
-            {/* nav links using the text props*/}
-            <NavLink href="#newsfeed">{props.newsfeed}</NavLink>
-            <NavLink href="#messages">{props.messages}</NavLink>
-            <NavLink href="#watch">{props.watch}</NavLink>
+            <MenuLink to="/dashboard">Dashboard</MenuLink>
+            <MenuLink to="/newsfeed">Newsfeed</MenuLink>
+            <MenuLink to="/messages">Messages</MenuLink>
+            <MenuLink to="/settings">Settings</MenuLink>
         </NavContainer>
     );
 };

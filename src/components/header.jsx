@@ -1,6 +1,8 @@
+
 // import icons for header
 import { FaSearch, FaUserCircle, FaCog } from "react-icons/fa";
 import styled from "styled-components";
+import { Link } from "react-router";
 
 // style the header
 const HeaderContainer = styled.header`
@@ -53,6 +55,18 @@ const UserIcons = styled.div`
     font-size: 23px;
 `;
 
+// style the links for the icons
+const ProfileLink = styled(Link)`
+    color: #777777;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    &:hover {
+        color: #725ac1;
+    }
+`;
+
 // receiving content through props
 const Header = (props) => {
     return (
@@ -71,8 +85,13 @@ const Header = (props) => {
 
             {/* User and settings icons */}
             <UserIcons>
-                <FaUserCircle />
-                <FaCog />
+                <ProfileLink to="/settings" aria-label="Profile settings">
+                    <FaUserCircle />
+                </ProfileLink>
+
+                <ProfileLink to="/settings" aria-label="Settings">
+                    <FaCog />
+                </ProfileLink>
             </UserIcons>
         </HeaderContainer>
     );
