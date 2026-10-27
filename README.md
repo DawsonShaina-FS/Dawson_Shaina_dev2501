@@ -46,3 +46,12 @@ For this assignment, I added React Router to my Connect app so users can switch 
 I also added three charts using Recharts to display sample data for engagement, followers, and posts. I used useState to update the chart data with a refresh button and useEffect to change the page title.
 
 I continued using styled-components for styling and kept the CRUD features from Module 2.
+
+
+## Module 4 - Advanced JS Functionality
+
+For this assignment, I added a User Profile page that fetches information from the Random User API using async/await and useEffect.
+
+I also used useState to manage the profile data and added a button to generate a new user. For my extra feature, I added a notification dropdown that opens and closes when the bell icon is clicked.
+
+I continued using styled-components for styling.

@@ -1,8 +1,12 @@
 
 // import icons for header
-import { FaSearch, FaUserCircle, FaCog } from "react-icons/fa";
+// import icons for header
+import { FaSearch, FaUserCircle, FaCog, FaBell } from "react-icons/fa";
 import styled from "styled-components";
 import { Link } from "react-router";
+
+// import React hook
+import { useState } from "react";
 
 // style the header
 const HeaderContainer = styled.header`
@@ -67,8 +71,56 @@ const ProfileLink = styled(Link)`
     }
 `;
 
+
+// style the notification container
+const NotificationContainer = styled.div`
+    position: relative;
+`;
+
+// style the notification button
+const NotificationButton = styled.button`
+    background: none;
+    border: none;
+    color: #777777;
+    font-size: 23px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+`;
+
+// style the notification dropdown
+const NotificationMenu = styled.div`
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 260px;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    color: #333333;
+    font-size: 14px;
+
+    p {
+        padding: 10px 0;
+        margin: 0;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    p:last-child {
+        border-bottom: none;
+    }
+`;
+
+
 // receiving content through props
 const Header = (props) => {
+
+    // using the usestate to open and close notifications
+    const [showNotifications, setShowNotifications] = useState(false);
+
     return (
         <HeaderContainer>
             {/* show logo */}
@@ -85,7 +137,31 @@ const Header = (props) => {
 
             {/* User and settings icons */}
             <UserIcons>
-                <ProfileLink to="/settings" aria-label="Profile settings">
+
+                {/* show notifications */}
+                <NotificationContainer>
+                    {/* notification button */}
+                    <NotificationButton
+                        type="button"
+                        aria-label="Toggle notifications"
+                        aria-expanded={showNotifications}
+                        onClick={() => setShowNotifications(!showNotifications)}
+                    >
+                        <FaBell />
+                    </NotificationButton>
+
+                    {/* show notifications when clicked */}
+                    {showNotifications && (
+                        <NotificationMenu>
+                            <strong>Notifications</strong>
+                            <p>You have a new follower!</p>
+                            <p>Someone liked your post.</p>
+                            <p>Your profile has been updated.</p>
+                        </NotificationMenu>
+                    )}
+                </NotificationContainer>
+
+                <ProfileLink to="/profile" aria-label="Profile settings">
                     <FaUserCircle />
                 </ProfileLink>
 

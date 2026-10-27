@@ -5,6 +5,7 @@ import Newsfeed from "./pages/Newsfeed";
 import Dashboard from "./pages/Dashboard";
 import Messages from "./pages/Messages";
 import Settings from "./pages/Settings";
+import Profile from "./pages/Profile";
 
 // the app is controlling which page is shown
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="/messages" element={<Messages />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 }
